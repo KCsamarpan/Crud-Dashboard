@@ -29,7 +29,7 @@ const Dashboard = () => {
     <div className="maindiv">
       <div className="main">
         <div className="menulogo">
-        <i class="fa-thin fa-bars"></i>
+        {/* <i class="fa-thin fa-bars" style={{margin}}></i> */}
         </div>
         <motion.div className="navbar">
           <motion.span
