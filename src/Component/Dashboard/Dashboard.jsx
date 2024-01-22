@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./css/main.css";
 import axios from "axios";
 import { motion, spring } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,9 @@ const Dashboard = () => {
   return (
     <div className="maindiv">
       <div className="main">
+        <div className="menulogo">
+        <i class="fa-thin fa-bars"></i>
+        </div>
         <motion.div className="navbar">
           <motion.span
             whileInView={{
@@ -54,9 +58,13 @@ const Dashboard = () => {
           </motion.span>
           <span className="tech">Tech Shop</span>
           <div className="navbar-heading">
-            <span className="home">Home</span>
-            <span className="add">Products</span>
-            <div className="bar"></div>
+          <div id="mySidenav" className="sidenav">
+  <a href="" className="closebtn">&times;</a>
+  <a href="#">Home</a>
+  <a href="#">Product</a>
+  {/* <a href="#"></a>
+  <a href="#">Contact</a> */}
+</div>
           </div>
           <motion.div
             className="iphonegroup"
