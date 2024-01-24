@@ -3,33 +3,15 @@ import "./css/main.css";
 import axios from "axios";
 import { motion, spring } from "framer-motion";
 import { Link } from "react-router-dom";
+import useHome from "./HomePageHook";
 
-const Dashboard = () => {
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiItems = await axios.get("https://dummyjson.com/products");
-        const response = apiItems.data.products;
-        setData(response);
-      } catch (error) {
-        console.log("error occurred", error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const filterdata = data.filter((items) =>
-    items.title.toLowerCase().includes(searchTerm.toString().toLowerCase())
-  );
-
+const HomePage = () => {
+  const {handleChange , filterdata , styleChanged , searchTerm , setSearchTerm}= useHome();
   return (
     <div className="maindiv">
       <div className="main">
         <div className="menulogo">
-        {/* <i class="fa-thin fa-bars" style={{margin}}></i> */}
+        <i class="fa-solid fa-bars fa-2xl" onClick={handleChange}  style={{width: "200%" , position: "fixed" , zIndex: 2 , marginLeft: "80px" , marginTop: "49px"}}></i>
         </div>
         <motion.div className="navbar">
           <motion.span
@@ -58,15 +40,16 @@ const Dashboard = () => {
           </motion.span>
           <span className="tech">Tech Shop</span>
           <div className="navbar-heading">
-          <div id="mySidenav" className="sidenav">
-  <a href="" className="closebtn">&times;</a>
+          <div id="mySidenav" className={styleChanged ? "sidenav1" :  "sidenav"} >
+  {/* <a href=""  id="closebtn" onClick={handleReset} >&times;</a> */}
   <a href="#">Home</a>
-  <a href="#">Product</a>
+  <Link to="/product">Product</Link>
   {/* <a href="#"></a>
   <a href="#">Contact</a> */}
 </div>
           </div>
           <motion.div
+
             className="iphonegroup"
           ></motion.div>
           <motion.div
@@ -108,7 +91,7 @@ const Dashboard = () => {
                 <div className="card-body">
                   <h5 className="card-title">{items.title}</h5>
                   <p className="card-text">{items.description}</p>
-                  <p className="card-text">price: {items.price}</p>
+                  <p className="card-text">price: ${items.price}</p>
                   <a href="#" className="btn btn-primary">
                     add to cart
                   </a>
@@ -122,4 +105,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default HomePage;
