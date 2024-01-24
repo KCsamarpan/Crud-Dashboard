@@ -1,8 +1,13 @@
 import React from 'react'
+import { DashboardBox } from '../ProductDashboard/Dashboard'
+import { Items } from '../Itemcard/item-card'
 
 const Product = () => {
   return (
-    <div>Product</div>
+    <div>
+      <DashboardBox/>
+      <Items/>
+    </div>
   )
 }
 

@@ -31,7 +31,7 @@ const useHome=()=>{
     setStyleChanged(!styleChanged)
   }
 
-   return {handleChange , filterdata  ,searchTerm ,setSearchTerm}
+   return {handleChange , filterdata , styleChanged ,searchTerm ,setSearchTerm}
 }
 
 export default useHome

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./css/main.css";
-import axios from "axios";
 import { motion, spring } from "framer-motion";
 import { Link } from "react-router-dom";
 import useHome from "./HomePageHook";
@@ -11,7 +10,7 @@ const HomePage = () => {
     <div className="maindiv">
       <div className="main">
         <div className="menulogo">
-        <i class="fa-solid fa-bars fa-2xl" onClick={handleChange}  style={{width: "200%" , position: "fixed" , zIndex: 2 , marginLeft: "80px" , marginTop: "49px"}}></i>
+        <i className="fa-solid fa-bars fa-2xl" onClick={handleChange}  style={{width: "200%" , position: "fixed" , zIndex: 2 , marginLeft: "80px" , marginTop: "49px"}}></i>
         </div>
         <motion.div className="navbar">
           <motion.span
@@ -44,8 +43,6 @@ const HomePage = () => {
   {/* <a href=""  id="closebtn" onClick={handleReset} >&times;</a> */}
   <a href="#">Home</a>
   <Link to="/product">Product</Link>
-  {/* <a href="#"></a>
-  <a href="#">Contact</a> */}
 </div>
           </div>
           <motion.div
